@@ -68,7 +68,7 @@ def rflt(phi):
         #    mu=muin
         #    sigma=sigmain
         #    n1=1
-        ################################################################ Restarting part of the algorithm
+        ################################################################ Restarting part of the algorithm (see supplement of PRL 117, 010503 (2016))
         #if cnt>=cntmax: 
         dv=np.log10(np.sqrt(sigmav[n1]))-np.log10(np.sqrt(sigmav[n1-1]))
         if dv>=th and cnt>=cntmax:
