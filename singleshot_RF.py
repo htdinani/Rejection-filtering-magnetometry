@@ -91,7 +91,7 @@ def rflt(phi):
         #########################################################
         t1=np.ceil(1.25/np.sqrt(sigma))*tau #This calculates the interaction time for the next measurement based on the current variance "sigma".
         t=np.minimum(t1,T2) #If the interaction time is bigger than the decoherence time we choose t=T2
-        theta=mu+np.random.normal(mu,np.sqrt(sigma)) #The controlled phase for the next measurement
+        theta=np.random.normal(mu,np.sqrt(sigma)) #The controlled phase for the next measurement
         n1=n1+1
     sigmaf=sigma#np.amin(sigmav) 
     #sfl=np.argmin(sigmav)#minloc[sigmav]
