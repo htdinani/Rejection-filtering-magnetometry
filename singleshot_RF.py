@@ -51,16 +51,17 @@ def rflt(phi):
             u2=np.random.uniform(0,1)
             spps=pps[n2]/kappae
             if u2<=spps: #accepting the samples based on pps/kappae
-                mu0=mu0+phis[n2]    #preparing the mean of the accepted samples
-                sigma00=sigma00+phis[n2]**2 #and this prepares the variance of the accepted samples
+                mu0=mu0+np.exp(1j*phis[n2])    #preparing the mean of the accepted samples
+                #sigma00=sigma00+phis[n2]**2 #and this prepares the variance of the accepted samples
                 #sigma10=sigma10+phisp(n2)**2
                 n3=n3+1
        #if n3>1: 
-        mu=mu0/n3 #The mean of the accepted samples
+        mu=np.angle(mu0/n3) #The mean of the accepted samples 
         muv.append(mu) #storing the means in the array "muv"
-        sigma1=(sigma00-n3*mu**2)/(n3) #The variance of the accepted samples
-        #sigma2=(sigma10-n3*mu**2)/(n3-1.0)
-        sigma=sigma1 
+        #sigma1=(sigma00-n3*mu**2)/(n3) #The variance of the accepted samples
+        #sigma2=(np.absolute(mu0/n3))**(-2)-1.0#(sigma10-n3*mu**2)/(n3-1.0)
+        sigma2=np.log(1/(np.absolute(mu0/n3)))
+        sigma=sigma2
         sigmav.append(sigma) #Storing the variance to the array "sigmav"
         #else:
         #    print('n3')
@@ -84,7 +85,7 @@ def rflt(phi):
                 cnt=0
                 sigma=sigmain#100*np.amin(sigmav)
                 mu=muin#muv[np.argmin(sigmav)]
-                n1=1
+                #n1=1
         else:
             cnt=cnt+1
         #########################################################
