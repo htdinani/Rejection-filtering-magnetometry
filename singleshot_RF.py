@@ -59,8 +59,8 @@ def rflt(phi):
         mu=np.angle(mu0/n3) #The mean of the accepted samples 
         muv.append(mu) #storing the means in the array "muv"
         #sigma1=(sigma00-n3*mu**2)/(n3) #The variance of the accepted samples
-        #sigma2=(np.absolute(mu0/n3))**(-2)-1.0#(sigma10-n3*mu**2)/(n3-1.0)
-        sigma2=np.log(1/(np.absolute(mu0/n3)))
+        sigma2=(np.absolute(mu0/n3))**(-2)-1.0#(sigma10-n3*mu**2)/(n3-1.0)
+        #sigma2=np.log(1/(np.absolute(mu0/n3)))
         sigma=sigma2
         sigmav.append(sigma) #Storing the variance to the array "sigmav"
         #else:
